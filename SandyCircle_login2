@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .banner {
+            background-color: #f4f4f4;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .features {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .feature {
+            margin: 20px;
+            display: inline-block;
+            width: 30%;
+        }
+
+        .post-creation {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SocialApp</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+            <a href="#" class="login">Login</a>
+            <a href="#" class="signup">Sign Up</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="banner">
+            <h1>Connect, Share, Discover</h1>
+            <button>Join Now</button>
+        </section>
+
+        <section class="post-creation">
+            <h2>Create a Post</h2>
+            <textarea id="postContent" rows="4" cols="50" placeholder="What's on your mind?"></textarea><br>
+            <button id="postButton">Post</button>
+        </section>
+
+        <section class="posts" id="postsSection">
+            <h2>Posts</h2>
+            <!-- Posts will be dynamically added here -->
+        </section>
+
+        <section class="features">
+            <h2>Features</h2>
+            <div class="feature">
+                <h3>Messaging</h3>
+                <p>Connect with friends through direct messages.</p>
+            </div>
+            <div class="feature">
+                <h3>Groups</h3>
+                <p>Join groups that match your interests.</p>
+            </div>
+            <div class="feature">
+                <h3>Events</h3>
+                <p>Stay updated on events happening around you.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 SocialApp. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to add a new post
+        document.getElementById('postButton').addEventListener('click', function() {
+            const postContent = document.getElementById('postContent').value;
+            if (postContent.trim() === "") {
+                alert("Please enter some content for your post.");
+                return;
+            }
+
+            // Create a new post element
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+            postElement.textContent = postContent;
+
+            // Add the new post to the posts section
+            document.getElementById('postsSection').appendChild(postElement);
+
+            // Clear the textarea
+            document.getElementById('postContent').value = "";
+        });
+    </script>
+</body>
+</html>
